@@ -1,0 +1,231 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+   <!-- Preloader -->
+   <div class="preloader"></div>
+            {% include "include/header.html" %}
+         <!-- End Main Header -->
+         <!-- Slider Three -->
+         <section class="slider-three">
+            <div class="single-item-carousel owl-carousel owl-theme">
+               <!-- Slide -->
+               {% for slide in slide %}
+               <div class="slide" >
+                  <div class="slider-three_image-layer" style="background-image:url({{slide.image.url}}) " ></div>
+                  <div class="auto-container">
+                     <!-- Content Column -->
+                     <div class="slider-three-content">
+                        <div class="slider-three_inner">
+                           <div class="slider-three_icon"><img src="{% static 'images/main-slider/logo-icon.png' %}" alt="" /></div>
+                           <h1 class="slider-three_heading">{{slide.name}}</h1>
+                           <div class="slider-three_text">{{slide.descriptions}}</div>
+                           <!-- Button Box -->
+                           <div class="slider-three_button-box">
+                              <a class="btn-style-seven theme-btn btn-item" href="{% url 'contact' %}">
+                                 <div class="btn-wrap">
+                                    <span class="text-one">Связаться <i class="fa-solid fa-caret-right fa-fw"></i></span>
+                                    <span class="text-two">Связаться <i class="fa-solid fa-caret-right fa-fw"></i></span>
+                                 </div>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+              {% endfor %}
+            </div>
+         </section>
+         <!-- End Main Slider -->
+         <!-- Feature Three -->
+         
+         <!-- End Feature Three -->
+         <!-- About Two -->
+         {% if about%}
+         <section class="about-two">
+            <div class="auto-container">
+               <div class="row clearfix">
+                  <!-- Image Column -->
+                  <div class="about-two_image-column col-lg-6 col-md-12 col-sm-12">
+                     <div class="about-two_image-inner">
+                        <div class="about-two_image">
+                           <!-- Counter Column -->
+                           <img src="{{about.image.url}}" alt="" />
+                           
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Content Column -->
+                  <div class="about-two_content-column col-lg-6 col-md-12 col-sm-12">
+                     <div class="about-two_content-inner">
+                        <!-- Sec Title -->
+                        <div class="sec-title style-two">
+                           <div class="sec-title_title">О нас</div>
+                           <h2 class="sec-title_heading">{{about.descriptions}}</h2>
+                           <div class="sec-title_text">{{about.desscriptions2}}</div>
+                        </div>
+                        <div class="row clearfix">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         {% endif %}
+         <!-- End About Two -->
+         <!-- Case One -->
+         {% if service%}
+         <section class="case-one">
+            <div class="case-one_pattern-layer scrollBlock" style="background-image:url({% static 'images/background/pattern-12.png' %})"></div>
+            <div class="case-one_pattern-layer-two" style="background-image:url({% static 'images/background/pattern-9.png' %})"></div>
+            <div class="auto-container">
+               <!-- Sec Title -->
+               <div class="sec-title style-two light centered">
+                  <div class="sec-title_title">Наши услуги</div>
+                  <h2 class="sec-title_heading">Позвольте нам заботиться о вас <br> наши услуги созданы для вашего комфорта и успеха.</h2>
+               </div>
+            
+               <div class="row clearfix scroller">
+                  <!-- Case Block One -->
+                  {% for service in service %}
+                  <div class="service-block_one style-two col-lg-4 col-md-6 col-sm-12">
+                     <div class="service-block_one-inner">
+                        <div class="service-block_one-icon flaticon-website"></div>
+                        <h5 class="service-block_one-heading">{{service.name}}</h5>
+                        <div class="service-block_one-overlay" style="background-image:url({{service.image.url}})">
+                           <div class="service-block_one-overlay-inner">
+                              <div class="upper-box">
+                                 <div class="service-block_one-icon-two flaticon-website"></div>
+                              </div>
+                              <div class="service-block_one-text-two">{{service.descriptions}}</div>
+                              <!-- Button Box -->
+                              <div class="service-block_one-button">
+                                 <a class="btn-style-seven theme-btn btn-item" href="{% url 'contact' %}">
+                                    <div class="btn-wrap">
+                                       <span class="text-one">Связажитесь с нами <i class="fa-solid fa-caret-right fa-fw"></i></span>
+                                       <span class="text-two">Связажитесь с нами <i class="fa-solid fa-caret-right fa-fw"></i></span>
+                                    </div>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+            </div>
+            
+         </section>
+         {% endif %}
+         <!-- End Case One -->
+         <!-- Services One -->
+         {% if review%}
+         <section class="testimonial-two" style="background-image:url({% static 'images/background/2.jpg' %})">
+            <div class="auto-container">
+               <div class="content-box d-flex justify-content-end">
+                  <div class="content-box-inner">
+                     <!-- Sec Title -->
+                     <div class="sec-title light style-two">
+                        <div class="sec-title_title">Отзывы</div>
+                        <h2 class="sec-title_heading">Ваши отзывы - наша награда и рост.</h2>
+                     </div>
+                     <div class="single-item-carousel owl-carousel owl-theme">
+                        <!-- Testimonial Block Two -->
+                        {% for review in review %}
+                        <div class="testimonial-block_two">
+                           <div class="testimonial-block_two-inner">
+                              <div class="testimonial-block_two-text">{{review.message}}</div>
+                              <h5>{{review.name}}</h5>
+                              <div class="designation">{{review.email}}</div>
+                           </div>
+                        </div>
+                        <!-- Testimonial Block Two -->
+                        {% endfor %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         {% endif %}
+         <!-- End Skill One -->
+         <!-- Business One -->
+         <section class="business-one style-two">
+            <div class="auto-container">
+               <!-- Sec Title -->
+               <div class="sec-title style-two">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                     <div class="left-box">
+                        <div class="sec-title_title">Оставьте отзыв</div>
+                        <h2 class="sec-title_heading">Ваши отзывы - наша лучшая награда.<br>Спасибо, что делитесь своим опытом работы с нами и помогаете нам стать лучше.</h2>
+                     </div>
+                  </div>
+               </div>
+               <div class="row clearfix">
+                  <!-- Branches Column -->
+                  <div class="branches-column col-lg-6 col-md-12 col-sm-12">
+                     <div class="inner-column">
+                        <ul class="business-info-list">
+                           <li>
+                              <span class="icon flaticon-pin"></span>
+                              <strong>Адрес нашего главного офиса:</strong>
+                              {{setting.locate}}
+                           </li>
+                           <li>
+                              <span class="icon flaticon-phone-call"></span>
+                              <strong>Звать на помощь:</strong>
+                              {{setting.phone}}
+                           </li>
+                           <li>
+                              <span class="icon flaticon-mail"></span>
+                              <strong>Напишите нам для информации</strong>
+                              {{setting.email}}
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- Form Column -->
+                  <div class="form-column col-lg-6 col-md-12 col-sm-12">
+                     <div class="inner-column">
+                        <h3 class="business-one_title">Вы можете оставить отзыв здесь</h3>
+                        <!-- Default Form -->
+                        <div class="default-form">
+                           <form method="post" >
+                              {% csrf_token %}
+                              <div class="row clearfix">
+                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Полное имя *</label>
+                                    <input type="text" name="name" placeholder="Полное имя" required="">
+                                 </div>
+                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Ваша Почта *</label>
+                                    <input type="text" name="email" placeholder="Ваша Почта" required="">
+                                 </div>
+                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <label>Ваш отзыв*</label>
+                                    <textarea class="" name="message" placeholder="Ваш отзыв..."></textarea>
+                                 </div>
+                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <button class="theme-btn send-btn">
+                                    Отправить отзыв
+                                    <span class="icon fa-solid fa-plus fa-fw"></span>
+                                    </button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                        <!-- End Default Form -->
+                     </div>
+                  </div>
+               </div>
+            </div>   
+         </section>
+<style>
+
+   .scroller{
+      height:350px;
+      overflow:hidden scroll;
+      position:relative;
+   }
+</style>
+      {% include "include/footer.html" %}   
+{% endblock%}

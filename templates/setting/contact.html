@@ -1,0 +1,105 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+            {% include "include/header.html" %}
+         <!-- End Main Header -->
+         <!-- Page Title -->
+         <section class="page-title" style="background-image:url({% static 'images/background/5.jpg' %})">
+            <div class="auto-container">
+               <h2>Наши контакты</h2>
+               <ul class="bread-crumb clearfix">
+                  <li><a href="{% url 'index' %}">Домой</a></li>
+                  <li>Контакты</li>
+               </ul>
+            </div>
+         </section>
+         <!-- End Page Title -->
+         <!-- Business One -->
+         <section class="business-one style-five" style="background-image:url({% static 'images/background/pattern-39.png' %})">
+            <div class="auto-container">
+               <!-- Sec Title -->
+               <div class="sec-title">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                     <div class="left-box">
+                        <div class="sec-title_title">СВЯЖИТЕСЬ С НАМИ</div>
+                        <h2 class="sec-title_heading">Мы На Связи Все Время,<br> Чтобы Помочь Вам!</h2>
+                     </div>
+
+                  </div>
+               </div>
+               <div class="row clearfix">
+                  <!-- Branches Column -->
+                  <div class="col-lg-6 mt-5 mt-lg-0">
+                      <div class="contact-g-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d866.1223518888048!2d72.79716126025129!3d40.52825974091269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skg!4v1711429634062!5m2!1sru!2skg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </div>
+                  </div>
+                  <!-- Form Column -->
+                  <div class="form-column col-lg-6 col-md-12 col-sm-12">
+                     <div class="inner-column">
+                        <h3 class="business-one_title">Оставить заявку</h3>
+                        <!-- Default Form -->
+                        <div class="default-form">
+                           <form method="post" >
+                              {% csrf_token %}
+                              <div class="row clearfix">
+                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Полное имя *</label>
+                                    <input type="text" name="name" placeholder="ФИО" required="">
+                                 </div>
+                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label>Электронный адрес *</label>
+                                    <input type="text" name="email" placeholder="email@example.com" required="">
+                                 </div>
+                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <label>Ваше сообщение*</label>
+                                    <textarea class="" name="message" placeholder="Сообщение..."></textarea>
+                                 </div>
+                                 <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <button class="theme-btn send-btn">
+                                    Отправить ваше сообщение
+                                    <span class="icon fa-solid fa-plus fa-fw"></span>
+                                    </button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                        <!-- End Default Form -->
+                     </div>
+                  </div>
+               </div>
+               <!-- Business One Lower Section -->
+               <div class="business-one_lower-section">
+                  <h6>Наши филиалы:</h6>
+                  <div class="row clearfix">
+                     <!-- Branch Column -->
+                     <div class="branch-column col-lg-3 col-md-6 col-sm-12">
+                        <div class="branch-column_inner">
+                           <div class="branch-name">Ош</div>
+                           <ul class="branch-info_list">
+                              <li>{{setting.locate}}</li>
+                              <li>+996 700560047</li>
+                              <li>+996 550560047</li>
+                              <li>{{setting.email}}</li>
+                           </ul>
+                        </div>
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- End Business One -->
+         <!-- Map One -->
+         <section class="map-one">
+            
+         </section>
+         <!-- End Map One -->
+         <!-- CTA One -->
+         
+         <!-- End CTA One -->
+         <!-- Footer -->
+         {% include "include/footer.html" %}   
+
+         <!-- Footer -->
+{% endblock %}

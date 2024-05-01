@@ -1,0 +1,138 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+            {% include "include/header.html" %}
+         <!-- End Main Header -->
+         <!-- Page Title -->
+         <section class="page-title" style="background-image:url({% static 'images/background/5.jpg' %})">
+            <div class="auto-container">
+               <h2>О нас</h2>
+               <ul class="bread-crumb clearfix">
+                  <li><a href="{% url 'index' %}">Домой</a></li>
+                  <li>О нас</li>
+               </ul>
+            </div>
+         </section>
+         <br>
+         <!-- End Page Title -->
+         <!-- About One / Style Two -->
+         {% if about %}
+         <section class="about-one style-two" style="background-image:url({% static 'images/background/pattern-1.png' %} )">
+            <div class="auto-container">
+               <div class="about-one-inner_container">
+                  <div class="row clearfix">
+                     <!-- Content Column -->
+                     <div class="about-one_content-column col-lg-7 col-md-12 col-sm-12">
+                        <div class="about-one_content-inner">
+                           <!-- Sec Title -->
+                           <div class="sec-title">
+                              <div class="sec-title_title">О нас</div>
+                              <h2 class="sec-title_heading">Мы Помогаем Найти Решения!</h2>
+                           </div>
+                           <div class="about-one_colored-text">{{about.descriptions}}</div>
+                           <div class="about-one_text">{{about.desscriptions2}}</div>
+                           <div class="row clearfix">
+                              <!-- Progress Info -->
+                              {% comment %} <div class="progress-info col-lg-6 col-md-6 col-sm-12">
+                                 <div class="progress-info_inner">
+                                    <div class="progress-info_title">
+                                       <span class="progress-info_icon flaticon-shield"></span>
+                                       <h6>Risk Free</h6>
+                                    </div>
+                                    <div class="progress-info_text">We offer risk free business for tension free life.</div>
+                                 </div>
+                              </div>
+                              <!-- Progress Info -->
+                              <div class="progress-info col-lg-6 col-md-6 col-sm-12">
+                                 <div class="progress-info_inner">
+                                    <div class="progress-info_title">
+                                       <span class="progress-info_icon flaticon-profit"></span>
+                                       <h6>Business Growth</h6>
+                                    </div>
+                                    <div class="progress-info_text">We ensure the business growth without conditions.</div>
+                                 </div>
+                              </div> {% endcomment %}
+                           </div>
+                        </div>
+                     </div>
+                     <!-- Image Column -->
+                     <div class="about-one_image-column col-lg-5 col-md-12 col-sm-12">
+                        <div class="about-one_image-inner">
+                           
+                           <div class="about-one_image">
+                              <img src="{{about.image.url}}" alt="" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         {% endif %}
+         <!-- End About One -->
+         <!-- Process One -->
+         {% if histor%}
+         <section class="process-one">
+            <div class="auto-container">
+               <div class="process-one_inner-conatiner">
+                  <div class="four-item-carousel owl-carousel owl-theme">
+                     <!-- Process Column -->
+                     {% for history in histor %}
+                     <div class="process-one_block">
+                        <div class="process-one_block-inner">
+                           <div class="process-one_image">
+                              <img src="{{history.image.url}} " alt="" />
+                           </div>
+                           <div class="process-one_year">{{history.years}}</div>
+                           <h5 class="process-one_heading">{{history.title}}</h5>
+                           <div class="process-one_text">{{history.descriptions}}</div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                     <!-- Process Column -->
+                  </div>
+               </div>
+            </div>
+         </section>
+         {% endif %}
+         <!-- End Process One -->
+         <!-- Team Two -->
+
+         <!-- End Team Two -->
+         <!-- Counter One -->
+         {% if numbers%}
+         <section class="counter-one" style="background-image:url({% static 'images/background/pattern-4.png' %} )">
+            <div class="auto-container">
+               <div class="row clearfix">
+                  <!-- Counter One Block -->
+                  <div class="counter-one_block col-lg-4 col-md-6 col-sm-12">
+                     <div class="counter-one_block-inner">
+                        <div class="counter-one_counter"><span class="odometer" data-count="{{numbers.clients}}"></span> +</div>
+                        <div class="counter-one_title"> Активные клиенты </div>
+                     </div>
+                  </div>
+                  <!-- Counter One Block -->
+                  <div class="counter-one_block col-lg-4 col-md-6 col-sm-12">
+                     <div class="counter-one_block-inner">
+                        <div class="counter-one_counter"><span class="odometer" data-count="{{numbers.review}}"></span> +</div>
+                        <div class="counter-one_title">Положительных отзывов</div>
+                     </div>
+                  </div>
+                  <!-- Counter One Block -->
+                  <div class="counter-one_block col-lg-4 col-md-6 col-sm-12">
+                     <div class="counter-one_block-inner">
+                        <div class="counter-one_counter"><span class="odometer" data-count="{{numbers.team}}"></span> +</div>
+                        <div class="counter-one_title">Опытных юруистов</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         {% endif %}
+         <!-- End Counter One -->
+         <!-- Testimonial One -->
+
+         <!-- Footer -->
+         {% include "include/footer.html" %}   
+
+{% endblock %}

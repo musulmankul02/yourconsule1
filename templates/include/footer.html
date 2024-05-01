@@ -1,0 +1,88 @@
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<footer class="main-footer style-three" style="background-image:url({% static 'images/background/pattern-11.png' %})">
+    <div class="auto-container">
+       <!-- Widgets Section -->
+       <div class="widgets-section">
+          <div class="row clearfix">
+             <!-- Big Column -->
+             <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                <div class="row clearfix">
+                   <!-- Footer Column -->
+                   <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                      <div class="footer-widget logo-widget">
+                         <div class="logo">
+                            <a href="{% url 'index' %}"><img src="{{setting.logo.url}}" width = "150px" alt="" /></a>
+                         </div>
+                         <div class="text">{{setting.descriptions}}</div>
+                         <a href="{% url 'about' %}" class="theme-btn about-btn">О нас</a>
+                      </div>
+                   </div>
+                   <!-- Footer Column -->
+                   <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                      <div class="footer-widget newsletter-widget">
+                         <h4>Наши социальные сети:</h4>
+                         
+                         <!-- Social Box -->
+                         <ul class="social-box">
+                           {% if setting.facebook %}
+                            <li><a href="{{setting.facebook}}" class="fa-brands fa-facebook-f fa-fw"></a></li>
+                            {% endif%}
+                            {% if setting.instagram%}
+                            <li><a href="{{setting.instagram}}" class="fa-brands fa-instagram fa-fw"></a></li>
+                            {% endif %}
+                            {% if setting.tiktok%}
+                            <li><a href="{{setting.tiktok}}" class="fab fa-tiktok fa-fw"></a></li>
+                            {% endif %}
+                            <i class=""></i>
+                           {% if setting.whatsapp%}
+                            <li><a href="{{setting.whatsapp}}" class="fa-solid fa-whatsapp fa-fw"></a></li>
+                            {% endif %}
+                            {% if setting.youtube%}
+                            <li><a href="{{setting.youtube}}" class="fa-solid fa-youtube fa-fw"></a></li>
+                            {% endif %}
+                         </ul>
+                         <!-- End Social Box -->
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <!-- Big Column -->
+             <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                <div class="row clearfix">
+                   <!-- Footer Column -->
+                   <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                      <div class="footer-widget contact-widget">
+                         <h4>Свяжитесь:</h4>
+                         <ul class="contact-list">
+                            <li><span class="icon fa fa-phone"></span> +996 700560047</li>
+                            <li><span class="icon fa fa-phone"></span> +996 550560047</li>
+                            <li><span class="icon fa fa-envelope"></span> {{setting.email}}5</li>
+                         </ul>
+                         <div class="timing">
+                            <strong>Онлайн консультация: </strong>
+                            {{setting.graphic}}<br>{{setting.graphic_clock}}
+                         </div>
+                      </div>
+                   </div>
+                   <!-- Footer Column -->
+                   <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                     <div class="footer-widget contact-widget">
+                        <h4>Наше приложение:</h4>
+                        <a href="{{setting.app}}"><img src="{{setting.logo.url}}" width = "100px" alt="" /></a>
+                        <div class="timing">
+                           <strong>Связаться с разработчиком: </strong>
+                           +996 706 030 607<br> +996 558 000 350<br> +996 775 232 350
+                        </div>
+                     </div>
+                  </div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="footer-bottom">
+          <div class="copyright">2023 &copy;  Все права защищены <a href="https://www.instagram.com/codexx_studio/">Codex Studio</a></div>
+       </div>
+    </div>
+ </footer>

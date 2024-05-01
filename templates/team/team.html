@@ -1,0 +1,68 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+            {% include "include/header.html" %}
+         <!-- End Main Header -->
+         <!-- Page Title -->
+         <section class="page-title" style="background-image:url({% static 'images/background/5.jpg' %})">
+            <div class="auto-container">
+               <h2>Юристы</h2>
+               <ul class="bread-crumb clearfix">
+                  <li><a href="{% url 'index' %}">Домой</a></li>
+                  <li>Юристы</li>
+               </ul>
+            </div>
+         </section>
+         <!-- End Page Title -->
+         <!-- Team Three -->
+         <section class="team-three">
+            <div class="auto-container">
+               <!-- Sec Title -->
+               <div class="sec-title">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                     <div class="left-box">
+                        <div class="sec-title_title">Юристы</div>
+                        <h2 class="sec-title_heading">{{about.title}}</h2>
+                     </div>
+                     <div class="right-box">
+                        <div class="sec-title_text">{{about.descriptions}}</div>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <div class="row clearfix">
+                  <!-- Team Block Two -->
+                  {% for team in team%}
+                  <div class="team-two_block col-lg-3 col-md-4 col-sm-12">
+                     <div class="team-two_block-inner">
+                        <div class="team-two_block-image">
+                           <a href="#"><img src="{{team.image.url}}" alt="" /></a>
+                        </div>
+                        <div class="team-two_block-content">
+                           <div class="upper-box">
+                              <h5 class="team-two_block-heading"><a href="#">{{team.title}}</a></h5>
+                              <div class="team-two_block-designation">{{team.work}}</div>
+                           </div>
+                           <div class="team-two_block-text">{{team.descriptions}}</div>
+                           <!-- Social Box -->
+                           <ul class="team-two_social_box">
+                              {% if team.facebook %}
+                              <li><a href="{{team.facebook }}" class="fa-brands fa-facebook-f fa-fw"></a></li>
+                              {% endif %}
+                              {% if team.whatsapp %}
+                              <li><a href="{{team.whatsapp}}" class="fa-brands fa-whatsapp fa-fw"></a></li>
+                              {% endif %}
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  {% endfor %}
+                  
+               </div>
+            </div>
+         </section>
+         
+         <!-- End CTA One -->
+         <!-- Footer -->
+               {% include "include/footer.html" %}   
+{% endblock%}

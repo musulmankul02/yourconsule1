@@ -1,0 +1,57 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+            {% include "include/header.html" %}
+         <!-- End Main Header -->
+         <!-- Page Title -->
+         <section class="page-title" style="background-image:url({% static 'images/background/5.jpg' %})">
+            <div class="auto-container">
+               <h2>Документы</h2>
+               <ul class="bread-crumb clearfix">
+                  <li><a href="{% url 'index' %}">Домой</a></li>
+                  <li>Документы</li>
+               </ul>
+            </div>
+         </section>
+         <!-- End Page Title -->
+         <!-- Team Three -->
+         <section class="team-three">
+            <div class="auto-container">
+               <!-- Sec Title -->
+               <div class="sec-title">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                     <div class="left-box">
+                        <div class="sec-title_title">Документы</div>
+                        <h2 class="sec-title_heading">{{about.title}}</h2>
+                     </div>
+                     <div class="right-box">
+                        <div class="sec-title_text">{{about.descriptions}}</div>
+                     </div>
+                  </div>
+               </div>
+               <br>
+               <div class="row clearfix">
+                  <!-- Team Block Two -->
+                  {% for document in document%}
+                  <div class="team-two_block col-lg-3 col-md-4 col-sm-12">
+                        <div class="right-box">
+                           <a class="btn-style-seven theme-btn clearfix" href="{{document.document.url}}">
+                              <div class="btn-wrap">
+                                 <span class="text-one">{{document.title}}</span>
+                                 <span class="text-two">{{document.title}}</span>
+                              </div>
+                           </a>
+                        </div>
+                  </div>
+                  {% endfor %}
+                  
+               </div>
+            </div>
+         </section>
+         <br>
+
+         
+         <!-- End CTA One -->
+         <!-- Footer -->
+               {% include "include/footer.html" %}   
+{% endblock%}
